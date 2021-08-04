@@ -3,7 +3,7 @@ import Header from '../components/header'
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <div className="">
       <Head>
         <title>Text editor</title>
         <link rel="icon" href="/favicon.ico" />
@@ -14,6 +14,8 @@ export default function Home() {
       </Head>
 
       <Header></Header>
+
+
     </div>
   )
 }
