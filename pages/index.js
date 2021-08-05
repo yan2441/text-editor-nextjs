@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Header from '../components/header'
+import NewFile from '../components/newFile'
 
 export default function Home() {
   return (
@@ -12,10 +13,8 @@ export default function Home() {
           rel="stylesheet"
         />
       </Head>
-
       <Header></Header>
-
-
+      <NewFile></NewFile>
     </div>
   )
 }
