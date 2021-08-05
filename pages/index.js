@@ -4,6 +4,9 @@ import NewFile from '../components/newFile'
 import Recent from '../components/recent'
 
 export default function Home() {
+  cosnt[session] = useSession();
+
+  if (!session) return <Login />
   return (
     <div className="">
       <Head>
