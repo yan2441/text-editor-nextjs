@@ -1,10 +1,13 @@
 import Head from 'next/head'
 import Header from '../components/header'
+import Login from '../components/login';
 import NewFile from '../components/newFile'
 import Recent from '../components/recent'
+import { useSession, getSession } from "next-auth/client"
+
 
 export default function Home() {
-  cosnt[session] = useSession();
+  const [session] = useSession();
 
   if (!session) return <Login />
   return (
