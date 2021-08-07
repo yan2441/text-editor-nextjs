@@ -13,7 +13,17 @@ function NewFile({ session }) {
   const [showModal, setShowModal] = useState(false);
   const [input, setInput] = useState("");
 
+  const createDocument = () => {
+    if (!input) return;
 
+    db.collection('userDocs').doc(session.user.email).collection("docs").add({
+      filename: input,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    });
+
+    setInput("");
+    setShowModal(false);
+  };
 
   const modal = (
     <Modal size="sm" active={showModal} toggler={() => setShowModal(false)}>
