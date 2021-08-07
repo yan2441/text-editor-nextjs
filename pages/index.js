@@ -21,7 +21,7 @@ export default function Home() {
         />
       </Head>
       <Header></Header>
-      <NewFile></NewFile>
+      <NewFile session={session}></NewFile>
       <Recent></Recent>
     </div>
   )
