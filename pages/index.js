@@ -14,7 +14,7 @@ export default function Home() {
     <div className="">
       <Head>
         <title>Text editor</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/docs-icon.svg" />
         <link
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet"

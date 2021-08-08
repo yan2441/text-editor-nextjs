@@ -6,6 +6,7 @@ import { useDocumentOnce } from 'react-firebase-hooks/firestore';
 import { useSession, signOut, getSession } from 'next-auth/client';
 import Login from './../../components/login';
 import TextEditor from "../../components/texteditor";
+import Head from "next/head"
 
 function Doc() {
   //check session or redirect to login
@@ -28,14 +29,22 @@ function Doc() {
 
   return (
     <div>
+      <Head>
+        <title>{snapshot?.data()?.filename} - Text editor</title>
+        <link
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet"
+        />
+        <link rel="icon" href="/docs-icon.svg" />
+      </Head>
       <header className="flex items-center justify-between p-3 pb-1">
         <span onClick={() => router.push("/")}
           className="cursor-pointer">
-          <Icon name="description" size="3xl" color="blue" />
+          <Icon name="description" size="4xl" color="blue" />
         </span>
 
         <div className="flex-grow px-2">
-          <h2>{snapshot?.data()?.filename}</h2>
+          <h2 className="text-xl text-gray-900">{snapshot?.data()?.filename}</h2>
           <div className="flex items-center h-8 -ml-1 space-x-1 text-sm text-gray-600">
             <p className="option">file</p>
             <p className="option">edit</p>
