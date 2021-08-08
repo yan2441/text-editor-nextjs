@@ -14,12 +14,12 @@ function Recent({ session }) {
       .orderBy("timestamp", "desc")
   );
   return (
-    <section className="px-10 bg-white md:px-0">
+    <section className="px-0 bg-white md:px-0">
       <div className="max-w-3xl py-8 mx-auto">
-        <div className="flex items-center justify-between pb-5">
-          <h2 className="flex-grow font-medium">My files</h2>
-          <p className="mr-12">Creation date</p>
-          <Icon name="folder" size="3xl" color="gray" />
+        <div className="flex items-center justify-between px-4 pb-4">
+          <h2 className="flex-grow font-medium">Recent documents</h2>
+          <p className="mr-8 font-light">Creation date</p>
+          <Icon name="folder" size="2xl" color="gray" />
         </div>
 
         {snapshot?.docs.map(doc => {
