@@ -21,8 +21,16 @@ function Recent({ session }) {
           <p className="mr-12">Creation date</p>
           <Icon name="folder" size="3xl" color="gray" />
         </div>
-      </div>
 
+        {snapshot?.docs.map(doc => {
+          return <DocumentRow
+            key={doc.id}
+            id={doc.id}
+            fileName={doc.data().filename}
+            date={doc.data().timestamp}
+          ></DocumentRow>
+        })}
+      </div>
     </section>
   )
 }
