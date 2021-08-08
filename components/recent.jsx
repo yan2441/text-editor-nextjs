@@ -1,8 +1,18 @@
 
 import Icon from "@material-tailwind/react/Icon";
+import { useCollectionOnce } from "react-firebase-hooks/firestore"
+import { db } from "../firebase";
+import DocumentRow from './DocumentRow';
 
 
-function Recent() {
+
+function Recent({ session }) {
+  const [snapshot] = useCollectionOnce(
+    db.collection("userDocs")
+      .doc(session.user.email)
+      .collection("docs")
+      .orderBy("timestamp", "desc")
+  );
   return (
     <section className="px-10 bg-white md:px-0">
       <div className="max-w-3xl py-8 mx-auto">
@@ -12,6 +22,7 @@ function Recent() {
           <Icon name="folder" size="3xl" color="gray" />
         </div>
       </div>
+
     </section>
   )
 }
