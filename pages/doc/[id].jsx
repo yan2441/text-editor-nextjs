@@ -3,7 +3,7 @@ import Icon from "@material-tailwind/react/Icon";
 import { useRouter } from "next/dist/client/router";
 import { db } from "../../firebase";
 import { useDocumentOnce } from 'react-firebase-hooks/firestore';
-import { useSession, signOut, getSession, session } from 'next-auth/client';
+import { useSession, signOut, getSession } from 'next-auth/client';
 import Login from './../../components/login';
 import TextEditor from "../../components/texteditor";
 
@@ -21,7 +21,7 @@ function Doc() {
     db.collection("userDocs").doc(session.user.email).collection("docs").doc(id)
   );
 
-  //check for securete
+  //check for security
   if (!loadingSnapshot && !snapshot?.data()?.filename) {
     router.replace("/");
   }
@@ -59,7 +59,9 @@ function Doc() {
           <Icon name="people" size="md" /> SHARE
         </Button>
 
-        <img className="w-10 h-10 ml-2 rounded-full cursor-pointer" src={session.user.image} alt="profile pic" />
+        <img className="w-10 h-10 ml-2 rounded-full cursor-pointer" src={session.user.image}
+          alt="profile pic"
+          onClick={signOut} />
       </header>
 
       <TextEditor />
